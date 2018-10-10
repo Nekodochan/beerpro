@@ -1,5 +1,7 @@
 package ch.beerpro.presentation.splash;
 
+import android.widget.EditText;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,9 +13,13 @@ import ch.beerpro.presentation.MainActivity;
 import ch.beerpro.domain.models.User;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
+import lombok.NonNull;
 
 import java.util.Arrays;
 import java.util.List;
@@ -80,4 +86,46 @@ public class SplashScreenActivity extends AppCompatActivity {
         }
     }
 
+    public void createAccount(String email, String password){
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "createUserWithEmail:success");
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            //updateUI(user);
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                            Toast.makeText(SplashScreenActivity.this, "", Toast.LENGTH_SHORT).show();
+                            //updateUI(null);
+                        }
+                    }
+                });
+    }
+
+    public void signIn(String email, String password){
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "signInWithEmail:success");
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            //updateUI(user);
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "signInWithEmail:failure", task.getException());
+                            //Toast.makeText(EmailPasswordActivity.this, "Authentication failed.",
+                              //      Toast.LENGTH_SHORT).show();
+                            //updateUI(null);
+                        }
+
+                        // ...
+                    }
+                });
+    }
 }
