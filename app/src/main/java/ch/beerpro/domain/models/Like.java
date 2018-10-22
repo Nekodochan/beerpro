@@ -39,7 +39,6 @@ public class Like implements Entity {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(id, userId, ratingId, createdAt);
     }
 

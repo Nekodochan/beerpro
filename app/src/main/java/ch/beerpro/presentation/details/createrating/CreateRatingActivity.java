@@ -22,6 +22,12 @@ import ch.beerpro.R;
 import ch.beerpro.domain.models.Beer;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.ui.PlacePicker;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.yalantis.ucrop.UCrop;
@@ -31,8 +37,10 @@ import pl.tajchert.nammu.Nammu;
 import pl.tajchert.nammu.PermissionCallback;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+
 
 public class CreateRatingActivity extends AppCompatActivity {
 
@@ -57,11 +65,18 @@ public class CreateRatingActivity extends AppCompatActivity {
     @BindView(R.id.photoExplanation)
     TextView photoExplanation;
 
+    @BindView(R.id.button)
+    Button btn;
+
+    private final int PLACE_PICKER_REQUESTCODE = 1;
+    private String location = "";
+
     private CreateRatingViewModel model;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_rating);
         ButterKnife.bind(this);
         Nammu.init(this);
@@ -77,6 +92,18 @@ public class CreateRatingActivity extends AppCompatActivity {
         model.setItem(item);
 
         addRatingBar.setRating(rating);
+
+        btn.setOnClickListener(view -> {
+            try {
+                PlacePicker.IntentBuilder intent = new PlacePicker.IntentBuilder();
+                //intent.setLatLngBounds(new LatLngBounds(new LatLng(20, 20), new LatLng(21, 21)));
+                startActivityForResult(intent.build(CreateRatingActivity.this), PLACE_PICKER_REQUESTCODE);
+            } catch (GooglePlayServicesRepairableException e) {
+                e.printStackTrace();
+            } catch (GooglePlayServicesNotAvailableException e) {
+                e.printStackTrace();
+            }
+        });
 
         int permissionCheck =
                 ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
@@ -164,9 +191,22 @@ public class CreateRatingActivity extends AppCompatActivity {
 
         if (resultCode == RESULT_OK && requestCode == UCrop.REQUEST_CROP) {
             handleCropResult(data);
-        } else if (resultCode == UCrop.RESULT_ERROR) {
-            handleCropError(data);
+        } else {
+            if (resultCode == UCrop.RESULT_ERROR) {
+                handleCropError(data);
+            } else if (requestCode == PLACE_PICKER_REQUESTCODE) {
+                if (resultCode == RESULT_OK) {
+                    Place place = PlacePicker.getPlace(this, data);
+                    if(place.getName() != null) {
+                        String toastMsg = String.format("Place: %s", place.getName());
+                        Toast.makeText(this, toastMsg, Toast.LENGTH_LONG).show();
+
+                        location = place.getName().toString();
+                    }
+                }
+            }
         }
+
     }
 
     private void handleCropResult(@NonNull Intent result) {
@@ -218,7 +258,7 @@ public class CreateRatingActivity extends AppCompatActivity {
         String comment = ratingText.getText().toString();
         // TODO show a spinner!
         // TODO return the new rating to update the new average immediately
-        model.saveRating(model.getItem(), rating, comment, model.getPhoto())
+        model.saveRating(model.getItem(), rating, comment, model.getPhoto(), location, new ArrayList<String>())
                 .addOnSuccessListener(task -> onBackPressed())
                 .addOnFailureListener(error -> Log.e(TAG, "Could not save rating", error));
     }

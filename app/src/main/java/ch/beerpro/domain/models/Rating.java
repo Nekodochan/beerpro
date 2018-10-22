@@ -28,6 +28,7 @@ public class Rating implements Entity {
     private float rating;
     private String comment;
 
+
     /**
      * We use a Map instead of an Array to be able to query it.
      *
@@ -35,4 +36,41 @@ public class Rating implements Entity {
      */
     private Map<String, Boolean> likes;
     private Date creationDate;
+
+
+    private String location;
+    private ArrayList<String> aroma;
+
+   /* public Rating(String id, String beerId, String beerName, String uid, String userName, String userPhoto, String photo, float rating, String comment, Map<String,Boolean> likes, Date creationDate) {
+        this.id = id;
+        this.beerId = beerId;
+        this.beerName = beerName;
+        userId = uid;
+        this.userName = userName;
+        this.userPhoto = userPhoto;
+        this.photo = photo;
+        this.rating = rating;
+        this.comment = comment;
+        this.likes = likes;
+        this.creationDate = creationDate;
+    }*/
+
+    /*@Override
+    public String getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    *//*@Override
+    public String getID() {
+        return id;
+    }*//*
+
+    public String getBeerId() {
+        return beerId;
+    }*/
 }

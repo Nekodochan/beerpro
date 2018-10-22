@@ -24,4 +24,14 @@ public class Search implements Entity {
     private String term;
 
     private Date creationDate = new Date();
+
+   /* @Override
+    public String getId() {
+        return id;
+    }
+
+    @Override
+    public String getID() {
+        return id;
+    }*/
 }

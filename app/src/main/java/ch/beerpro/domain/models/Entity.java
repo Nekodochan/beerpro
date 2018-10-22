@@ -16,4 +16,6 @@ public interface Entity {
         }
         return byId;
     }
+
+    //String getID();
 }

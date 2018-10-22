@@ -13,6 +13,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 
@@ -40,7 +41,7 @@ public class CreateRatingViewModel extends ViewModel {
         this.photo = photo;
     }
 
-    public Task<Rating> saveRating(Beer item, float rating, String comment, Uri localPhotoUri) {
+    public Task<Rating> saveRating(Beer item, float rating, String comment, Uri localPhotoUri, String place, ArrayList<String> aromen) {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         assert user != null;
@@ -58,7 +59,7 @@ public class CreateRatingViewModel extends ViewModel {
             }
 
             Rating newRating = new Rating(null, item.getId(), item.getName(), user.getUid(), user.getDisplayName(),
-                    user.getPhotoUrl().toString(), photoUrl, rating, comment, Collections.emptyMap(), new Date());
+                    user.getPhotoUrl().toString(), photoUrl, rating, comment, Collections.emptyMap(), new Date(), place, aromen);
             Log.i(TAG, "Adding new rating: " + newRating.toString());
             return FirebaseFirestore.getInstance().collection("ratings").add(newRating);
 

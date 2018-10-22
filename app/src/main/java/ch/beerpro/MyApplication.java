@@ -11,12 +11,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
  */
 public class MyApplication extends Application {
 
-    private FirebaseAuth mAuth;
+
     @Override
     public void onCreate() {
         super.onCreate();
-
-        mAuth = FirebaseAuth.getInstance();
         /*
          * This will log whenever we reveice data from firestore. This is useful for debugging and to get a feeling
          * of how much and when new data is received from the database.
