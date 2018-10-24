@@ -77,6 +77,11 @@
                 android:value=".presentation.MainActivity" />
         </activity>
         <activity android:name=".presentation.details.createrating.AddPlaceToRating"></activity>
+
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDvzAu-yCtzuylApq-EWjXLUUamAaaL2p4" />
     </application>
 
 </manifest>

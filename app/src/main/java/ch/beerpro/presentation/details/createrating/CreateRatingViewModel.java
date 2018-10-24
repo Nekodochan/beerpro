@@ -41,7 +41,7 @@ public class CreateRatingViewModel extends ViewModel {
         this.photo = photo;
     }
 
-    public Task<Rating> saveRating(Beer item, float rating, String comment, Uri localPhotoUri, String place, ArrayList<String> aromen) {
+    public Task<Rating> saveRating(Beer item, float rating, String comment, Uri localPhotoUri, String place, String aromen) {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         assert user != null;

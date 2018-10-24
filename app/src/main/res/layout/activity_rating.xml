@@ -147,6 +147,34 @@
                 app:layout_constraintStart_toEndOf="@+id/avatar"
                 app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_marginTop="8dp"
+                android:text="Welche Aromen hat das Bier?"
+                android:textAppearance="?attr/textAppearanceListItem"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ratingText" />
+
+            <EditText
+                android:id="@+id/aromaText"
+                android:layout_width="0dp"
+                android:layout_height="67dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@android:color/transparent"
+                android:gravity="top"
+                android:inputType="textCapSentences|textAutoCorrect|textAutoComplete|textMultiLine"
+                android:minLines="2"
+                android:paddingBottom="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/avatar"
+                app:layout_constraintTop_toBottomOf="@+id/textView6"
+                app:layout_constraintHorizontal_bias="0.0"
+                android:layout_marginTop="12dp" />
+
             <View
                 android:id="@+id/separator5"
                 android:layout_width="match_parent"
@@ -156,13 +184,22 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ratingText" />
 
+            <View
+                android:id="@+id/separator6"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ffeeeeee"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/aromaText" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/separator5">
+                app:layout_constraintTop_toBottomOf="@+id/separator6">
 
                 <Button
                     android:id="@+id/button"

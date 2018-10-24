@@ -94,16 +94,8 @@ public class RatingsRecyclerViewAdapter extends ListAdapter<Rating, RatingsRecyc
                     DateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.SHORT).format(item.getCreationDate());
             date.setText(formattedDate);
 
-            StringBuilder aromaString = new StringBuilder();
-            if(item.getAroma() != null){
-                for (String s: item.getAroma()) {
-                    aromaString.append(s);
-                    aromaString.append(", ");
-                }
-                aromaString.delete(aromaString.length() -3, aromaString.length() -1);
-            }
-            aroma.setText(aromaString);
 
+            aroma.setText(item.getAroma() == null ? "" : item.getAroma());
             location.setText(item.getLocation() == null ? "" : item.getLocation());
 
             if (item.getPhoto() != null) {

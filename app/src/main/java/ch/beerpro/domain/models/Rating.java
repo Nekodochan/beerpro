@@ -39,7 +39,7 @@ public class Rating implements Entity {
 
 
     private String location;
-    private ArrayList<String> aroma;
+    private String aroma;
 
    /* public Rating(String id, String beerId, String beerName, String uid, String userName, String userPhoto, String photo, float rating, String comment, Map<String,Boolean> likes, Date creationDate) {
         this.id = id;

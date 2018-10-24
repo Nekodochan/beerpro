@@ -68,6 +68,9 @@ public class CreateRatingActivity extends AppCompatActivity {
     @BindView(R.id.button)
     Button btn;
 
+    @BindView(R.id.aromaText)
+    EditText aromaText;
+
     private final int PLACE_PICKER_REQUESTCODE = 1;
     private String location = "";
 
@@ -200,7 +203,6 @@ public class CreateRatingActivity extends AppCompatActivity {
                     if(place.getName() != null) {
                         String toastMsg = String.format("Place: %s", place.getName());
                         Toast.makeText(this, toastMsg, Toast.LENGTH_LONG).show();
-
                         location = place.getName().toString();
                     }
                 }
@@ -256,9 +258,10 @@ public class CreateRatingActivity extends AppCompatActivity {
     private void saveRating() {
         float rating = addRatingBar.getRating();
         String comment = ratingText.getText().toString();
+        String aroma = aromaText.getText().toString();
         // TODO show a spinner!
         // TODO return the new rating to update the new average immediately
-        model.saveRating(model.getItem(), rating, comment, model.getPhoto(), location, new ArrayList<String>())
+        model.saveRating(model.getItem(), rating, comment, model.getPhoto(), location, aroma)
                 .addOnSuccessListener(task -> onBackPressed())
                 .addOnFailureListener(error -> Log.e(TAG, "Could not save rating", error));
     }
