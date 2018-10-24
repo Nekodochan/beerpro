@@ -99,7 +99,6 @@ public class CreateRatingActivity extends AppCompatActivity {
         btn.setOnClickListener(view -> {
             try {
                 PlacePicker.IntentBuilder intent = new PlacePicker.IntentBuilder();
-                //intent.setLatLngBounds(new LatLngBounds(new LatLng(20, 20), new LatLng(21, 21)));
                 startActivityForResult(intent.build(CreateRatingActivity.this), PLACE_PICKER_REQUESTCODE);
             } catch (GooglePlayServicesRepairableException e) {
                 e.printStackTrace();
