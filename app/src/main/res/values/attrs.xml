@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+        <attr name="AppTheme" format="reference"/>
+        <attr name="toolBarStyle" format="reference"/>
+        <attr name="loginScreenTheme" format="reference"/>
+        <attr name="ratingBar" format="reference"/>
+
+        <!--
+        <attr name="colorPrimaryLight" format="color"/>
+        <attr name="windowBackgroundColor" format="color"/>
+        <attr name="colorPrimary" format="color"/>
+        <attr name="colorPrimaryDark" format="color"/>
+        <attr name="colorAccent" format="color"/>
+        -->
+
+</resources>
+

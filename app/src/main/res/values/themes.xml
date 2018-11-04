@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <style name="Theme.AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="AppTheme">@style/AppTheme</item>
+        <item name="toolBarStyle">@style/ToolBarStyle</item>
+        <item name="loginScreenTheme">@style/LoginScreenTheme</item>
+        <item name="ratingBar">@style/RatingBar</item>
+    </style>
+
+    <style name="Theme.PinkUnicornTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="AppTheme">@style/pinkAppTheme</item>
+        <item name="toolBarStyle">@style/pinkToolBarStyle</item>
+        <item name="loginScreenTheme">@style/pinkLoginScreenTheme</item>
+        <item name="ratingBar">@style/pinkRatingBar</item>
+    </style>
+
+
+</resources>
