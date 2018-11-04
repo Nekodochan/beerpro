@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Beer Colors -->
     <color name="colorPrimary">#fdd835</color>
     <color name="colorPrimaryLight">#ffff6b</color>
     <color name="colorPrimaryDark">#c6a700</color>
     <color name="windowBackgroundColor">#fffde7</color>
     <color name="colorAccent">#5d4037</color>
+
+
+    <!-- Pink Theme Colors -->
+    <color name="pinkColorPrimary">#eb0088</color>
+    <color name="pinkColorPrimaryLight">#f5b5cf</color>
+    <color name="pinkColorPrimaryDark">#890055</color>
+    <color name="pinkWindowBackgroundColor">#fffde7</color>
+    <color name="pinkColorAccent">#4f0b56</color>
+
 </resources>

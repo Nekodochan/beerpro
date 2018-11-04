@@ -67,4 +67,38 @@
         <!--<item name="android:layout_marginLeft">64dp</item>
         <item name="android:layout_marginRight">64dp</item>-->
     </style>
+
+
+    <!--Pink Unicorn Theme-->
+    <style name="pinkAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/pinkColorPrimary</item>
+        <item name="colorPrimaryDark">@color/pinkColorPrimaryDark</item>
+        <item name="colorAccent">@color/pinkColorAccent</item>
+        <item name="android:windowBackground">@color/pinkWindowBackgroundColor</item>
+
+        <!-- enable window content transitions -->
+        <item name="android:windowActivityTransitions">true</item>
+
+        <!-- specify shared element transitions -->
+        <item name="android:windowSharedElementEnterTransition">@transition/change_view_transform</item>
+        <item name="android:windowSharedElementExitTransition">@transition/change_view_transform</item>
+    </style>
+
+    <style name="pinkToolBarStyle" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:textColorPrimary">@color/pinkColorAccent</item>
+        <item name="android:textColorSecondary">@color/pinkColorAccent</item>
+        <item name="actionMenuTextColor">@color/pinkColorAccent</item>
+        <item name="titleMarginStart">@dimen/title_margin_start</item>
+    </style>
+
+    <style name="pinkLoginScreenTheme" parent="AppTheme">
+        <item name="android:windowBackground">@color/pinkColorPrimary</item>
+    </style>
+
+    <style name="pinkRatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@android:color/darker_gray</item>
+        <item name="colorControlActivated">@color/pinkColorPrimary</item>
+    </style>
+
+
 </resources>
