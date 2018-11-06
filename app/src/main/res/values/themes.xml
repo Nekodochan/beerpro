@@ -2,18 +2,20 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <style name="Theme.AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="AppTheme">@style/AppTheme</item>
-        <item name="toolBarStyle">@style/ToolBarStyle</item>
-        <item name="loginScreenTheme">@style/LoginScreenTheme</item>
-        <item name="ratingBar">@style/RatingBar</item>
+    <style name="Theme.BeerTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryLight">@color/colorPrimaryLight</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="windowBackgroundColor">@color/windowBackgroundColor</item>
+        <item name="colorAccent">@color/colorAccent</item>
     </style>
 
     <style name="Theme.PinkUnicornTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="AppTheme">@style/pinkAppTheme</item>
-        <item name="toolBarStyle">@style/pinkToolBarStyle</item>
-        <item name="loginScreenTheme">@style/pinkLoginScreenTheme</item>
-        <item name="ratingBar">@style/pinkRatingBar</item>
+        <item name="colorPrimary">@color/pinkColorPrimary</item>
+        <item name="colorPrimaryLight">@color/pinkColorPrimaryLight</item>
+        <item name="colorPrimaryDark">@color/pinkColorPrimaryDark</item>
+        <item name="windowBackgroundColor">@color/pinkWindowBackgroundColor</item>
+        <item name="colorAccent">@color/pinkColorAccent</item>
     </style>
 
 

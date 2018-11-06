@@ -76,12 +76,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".presentation.MainActivity" />
         </activity>
-        <activity android:name=".presentation.details.createrating.AddPlaceToRating"></activity>
-
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDvzAu-yCtzuylApq-EWjXLUUamAaaL2p4" />
+
+
+        <activity
+            android:name=".presentation.profile.ThemeSettings"
+            android:label="@string/title_activity_theme_settings"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

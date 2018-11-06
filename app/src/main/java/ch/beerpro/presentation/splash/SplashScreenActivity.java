@@ -11,6 +11,7 @@ import android.util.Log;
 import ch.beerpro.R;
 import ch.beerpro.presentation.MainActivity;
 import ch.beerpro.domain.models.User;
+import ch.beerpro.presentation.utils.ThemeChanger;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -35,6 +36,7 @@ public class SplashScreenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ThemeChanger.onActivityCreateSetTheme(this);
         setContentView(R.layout.activity_splash);
         mAuth = FirebaseAuth.getInstance();
     }

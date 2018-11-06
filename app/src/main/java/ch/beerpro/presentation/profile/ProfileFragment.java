@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
@@ -14,15 +16,17 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ch.beerpro.GlideApp;
+import ch.beerpro.MyApplication;
 import ch.beerpro.R;
+import ch.beerpro.domain.models.MyBeer;
 import ch.beerpro.domain.models.Rating;
 import ch.beerpro.domain.models.Wish;
+import ch.beerpro.presentation.MainActivity;
 import ch.beerpro.presentation.MainViewModel;
 import ch.beerpro.presentation.profile.mybeers.MyBeersActivity;
-import ch.beerpro.domain.models.MyBeer;
 import ch.beerpro.presentation.profile.myratings.MyRatingsActivity;
 import ch.beerpro.presentation.profile.mywishlist.WishlistActivity;
-import com.bumptech.glide.Glide;
+import ch.beerpro.presentation.utils.ThemeChanger;
 import com.bumptech.glide.request.RequestOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -33,6 +37,7 @@ import java.util.List;
  * Because the profile view is not a whole activity but rendered as part of the MainActivity in a tab, we use a so-called fragment.
  */
 public class ProfileFragment extends Fragment {
+
 
     private static final String TAG = "ProfileFragment";
 
@@ -114,5 +119,4 @@ public class ProfileFragment extends Fragment {
     private void updateWishlistCount(List<Wish> wishes) {
         myWishlistCount.setText(String.valueOf(wishes.size()));
     }
-
 }

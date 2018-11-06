@@ -20,6 +20,7 @@ import butterknife.ButterKnife;
 import ch.beerpro.GlideApp;
 import ch.beerpro.R;
 import ch.beerpro.domain.models.Beer;
+import ch.beerpro.presentation.utils.ThemeChanger;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
@@ -79,6 +80,7 @@ public class CreateRatingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ThemeChanger.onActivityCreateSetTheme(this);
 
         setContentView(R.layout.activity_rating);
         ButterKnife.bind(this);

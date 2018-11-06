@@ -1,6 +1,7 @@
 package ch.beerpro;
 
 import android.app.Application;
+import ch.beerpro.presentation.utils.ThemeChanger;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -11,7 +12,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
  */
 public class MyApplication extends Application {
 
-
+    public static int currentPosition;
     @Override
     public void onCreate() {
         super.onCreate();

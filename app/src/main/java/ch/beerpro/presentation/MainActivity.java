@@ -5,18 +5,25 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Spinner;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
+import ch.beerpro.MyApplication;
 import ch.beerpro.R;
 import ch.beerpro.presentation.explore.BeerCategoriesFragment;
 import ch.beerpro.presentation.explore.BeerManufacturersFragment;
 import ch.beerpro.presentation.explore.ExploreFragment;
 import ch.beerpro.presentation.profile.ProfileFragment;
+import ch.beerpro.presentation.profile.ThemeSettings;
 import ch.beerpro.presentation.ratings.RatingsFragment;
 import ch.beerpro.presentation.splash.SplashScreenActivity;
+import ch.beerpro.presentation.utils.ThemeChanger;
 import ch.beerpro.presentation.utils.ViewPagerAdapter;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -45,6 +52,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ThemeChanger.onActivityCreateSetTheme(this);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
@@ -114,6 +122,9 @@ public class MainActivity extends AppCompatActivity
             case R.id.action_logout:
                 logout();
                 return true;
+            case R.id.action_settings:
+                goToSettings();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -127,6 +138,13 @@ public class MainActivity extends AppCompatActivity
         });
     }
 
+    public void goToSettings() {
+        Intent intent = new Intent(MainActivity.this, ThemeSettings.class);
+        startActivity(intent);
+    }
+
+
+
     @Override
     public void onBeerCategorySelected(String name) {
         // TODO implement
@@ -136,4 +154,5 @@ public class MainActivity extends AppCompatActivity
     public void onBeerManufacturerSelected(String name) {
         // TODO implement
     }
+
 }
