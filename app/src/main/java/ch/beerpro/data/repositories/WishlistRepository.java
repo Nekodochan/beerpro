@@ -78,8 +78,6 @@ public class WishlistRepository {
 
 
     public LiveData<Wish> getMyWishForBeer(LiveData<String> currentUserId, LiveData<Beer> beer) {
-
-
         return switchMap(combineLatest(currentUserId, beer), WishlistRepository::getUserWishListFor);
     }
 

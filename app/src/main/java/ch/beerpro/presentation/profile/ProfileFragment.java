@@ -3,13 +3,16 @@ package ch.beerpro.presentation.profile;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import butterknife.BindView;
@@ -21,11 +24,14 @@ import ch.beerpro.R;
 import ch.beerpro.domain.models.MyBeer;
 import ch.beerpro.domain.models.Rating;
 import ch.beerpro.domain.models.Wish;
+import ch.beerpro.domain.models.Fridge;
 import ch.beerpro.presentation.MainActivity;
 import ch.beerpro.presentation.MainViewModel;
 import ch.beerpro.presentation.profile.mybeers.MyBeersActivity;
 import ch.beerpro.presentation.profile.myratings.MyRatingsActivity;
 import ch.beerpro.presentation.profile.mywishlist.WishlistActivity;
+import ch.beerpro.presentation.profile.myfridge.FridgeActivity;
+import com.bumptech.glide.Glide;
 import ch.beerpro.presentation.utils.ThemeChanger;
 import com.bumptech.glide.request.RequestOptions;
 import com.google.firebase.auth.FirebaseAuth;
@@ -37,7 +43,6 @@ import java.util.List;
  * Because the profile view is not a whole activity but rendered as part of the MainActivity in a tab, we use a so-called fragment.
  */
 public class ProfileFragment extends Fragment {
-
 
     private static final String TAG = "ProfileFragment";
 
@@ -76,6 +81,7 @@ public class ProfileFragment extends Fragment {
         model.getMyWishlist().observe(this, this::updateWishlistCount);
         model.getMyRatings().observe(this, this::updateRatingsCount);
         model.getMyBeers().observe(this, this::updateMyBeersCount);
+        model.getMyFridge().observe(this, this::updateFridgeCount);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -112,6 +118,13 @@ public class ProfileFragment extends Fragment {
         startActivity(intent);
     }
 
+    @OnClick(R.id.myFridge)
+    public void handleMyFridgeClick(View view) {
+        Intent intent = new Intent(getActivity(), FridgeActivity.class);
+        startActivity(intent);
+    }
+
+
     private void updateRatingsCount(List<Rating> ratings) {
         myRatingsCount.setText(String.valueOf(ratings.size()));
     }
@@ -119,4 +132,9 @@ public class ProfileFragment extends Fragment {
     private void updateWishlistCount(List<Wish> wishes) {
         myWishlistCount.setText(String.valueOf(wishes.size()));
     }
+
+    private void updateFridgeCount(List<Fridge> fridges) {
+        myFridgeCount.setText(String.valueOf(fridges.size()));
+    }
+
 }

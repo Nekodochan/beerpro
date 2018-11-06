@@ -62,7 +62,8 @@
             android:drawableTint="@android:color/darker_gray"
             android:text="In den Kühlschrank"
             android:textColor="@android:color/darker_gray"
-            android:textSize="10sp" />
+            android:textSize="10sp"
+            android:onClick="onFridgeClickedListener"/>
 
         <View
             android:layout_width="1dp"

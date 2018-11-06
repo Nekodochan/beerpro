@@ -103,6 +103,7 @@
     <string name="title_activity_myratings">Meine Bewertungen</string>
     <string name="title_activity_mybeers">Meine Biere</string>
     <string name="action_search">Bier suchen</string>
+    <string name="title_activity_myfridge">Kühlschrank</string>
     <string name="title_activity_add_place_to_rating">AddPlaceToRating</string>
 
     <!-- TODO: Remove or change this placeholder text -->

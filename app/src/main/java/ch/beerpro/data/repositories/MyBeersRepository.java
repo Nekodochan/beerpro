@@ -5,9 +5,11 @@ import ch.beerpro.domain.models.Beer;
 import ch.beerpro.domain.models.Entity;
 import ch.beerpro.domain.models.Rating;
 import ch.beerpro.domain.models.Wish;
+import ch.beerpro.domain.models.Fridge;
 import ch.beerpro.domain.models.MyBeer;
 import ch.beerpro.domain.models.MyBeerFromRating;
 import ch.beerpro.domain.models.MyBeerFromWishlist;
+import ch.beerpro.domain.models.MyBeerFromFridge;
 import org.apache.commons.lang3.tuple.Triple;
 
 import java.util.*;
@@ -50,5 +52,6 @@ public class MyBeersRepository {
         return map(combineLatest(myWishlist, myRatings, map(allBeers, Entity::entitiesById)),
                 MyBeersRepository::getMyBeers);
     }
+
 
 }

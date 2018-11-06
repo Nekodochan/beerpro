@@ -4,10 +4,7 @@ import android.util.Pair;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-import ch.beerpro.data.repositories.BeersRepository;
-import ch.beerpro.data.repositories.CurrentUser;
-import ch.beerpro.data.repositories.SearchesRepository;
-import ch.beerpro.data.repositories.WishlistRepository;
+import ch.beerpro.data.repositories.*;
 import ch.beerpro.domain.models.Beer;
 import ch.beerpro.domain.models.Search;
 import com.google.common.base.Strings;
@@ -80,6 +77,7 @@ public class SearchViewModel extends ViewModel implements CurrentUser {
     public void toggleItemInWishlist(String beerId) {
         wishlistRepository.toggleUserWishlistItem(getCurrentUser().getUid(), beerId);
     }
+
 
     public void addToSearchHistory(String term) {
         searchesRepository.addSearchTerm(term);

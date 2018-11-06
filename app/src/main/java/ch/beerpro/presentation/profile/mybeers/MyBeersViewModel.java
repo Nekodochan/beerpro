@@ -5,10 +5,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import ch.beerpro.data.repositories.*;
-import ch.beerpro.domain.models.Beer;
-import ch.beerpro.domain.models.Rating;
-import ch.beerpro.domain.models.Wish;
-import ch.beerpro.domain.models.MyBeer;
+import ch.beerpro.domain.models.*;
 import com.google.common.base.Strings;
 
 import java.util.ArrayList;

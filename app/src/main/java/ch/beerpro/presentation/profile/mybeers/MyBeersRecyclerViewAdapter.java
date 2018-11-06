@@ -19,6 +19,7 @@ import ch.beerpro.domain.models.Beer;
 import ch.beerpro.domain.models.MyBeer;
 import ch.beerpro.domain.models.MyBeerFromRating;
 import ch.beerpro.domain.models.MyBeerFromWishlist;
+import ch.beerpro.domain.models.MyBeerFromFridge;
 import ch.beerpro.presentation.utils.DrawableHelpers;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -130,6 +131,7 @@ public class MyBeersRecyclerViewAdapter extends ListAdapter<MyBeer, MyBeersRecyc
                 removeFromWishlist.setText("Wunschliste");
                 onTheListSince.setText("beurteilt am");
             }
+
         }
     }
 }
